@@ -1,0 +1,34 @@
+databaseChangeLog:
+
+  - changeSet:
+        id: 201810230030-2
+        author: diego.rubio
+        changes:
+          - createTable:
+              tableName: orders
+              columns:
+                - column:
+                    name: id
+                    type: UUID
+                    constraints:
+                      primaryKey: true
+                      nullable: false
+                - column:
+                    name: customerName
+                    type: varchar(100)
+                    constraints:
+                      nullable: false
+                -  column:
+                    name: customerFirstSurname
+                    type: varchar(100)
+                - column:
+                    name: customerSecondSurname
+                    type: varchar(260)
+                    constraints:
+                      nullable: true
+                - column:
+                    name: phone
+                    type: varchar(12)
+                - column:
+                    name: email
+                    type: varchar(255)

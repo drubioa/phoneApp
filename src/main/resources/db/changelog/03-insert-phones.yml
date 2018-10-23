@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+          id: 201810230030-3
+          author: diego.rubio
+          changes:
+            - loadData:
+                columns:
+                - column:
+                    name: id
+                    header: id
+                    type: string
+                - column:
+                    name: name
+                    header: name
+                    type: string
+                - column:
+                    name: reference
+                    header: reference
+                    type: string
+                - column:
+                    name: price
+                    header: price
+                    type: numeric
+                encoding: UTF-8
+                file: classpath:/db/changelog/phones.csv
+                separator: ;
+                tableName: phones

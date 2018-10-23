@@ -1,0 +1,26 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 201810230030-1
+      author: diego.rubio
+      changes:
+        - createTable:
+            tableName: phones
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(100)
+              - column:
+                  name: reference
+                  type: varchar(260)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: number
