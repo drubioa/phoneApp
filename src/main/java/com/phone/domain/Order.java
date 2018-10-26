@@ -8,7 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -26,16 +28,13 @@ public class Order {
     @Column(name = "id", updatable =  false, nullable = false)
     private UUID id;
 
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "customerName")
+    @Column(name = "customername")
     private String customerName;
 
-    @Column(name = "customerFirstSurname")
+    @Column(name = "customerfirstsurname")
     private String customerFirstSurname;
 
-    @Column(name = "customerSecondSurname")
+    @Column(name = "customersecondsurname")
     private String customerSecondSurname;
 
     @Column(name = "phone")
@@ -44,7 +43,13 @@ public class Order {
     @Column(name = "email")
     private String email;
 
-    /*@OneToMany(fetch = FetchType.EAGER, mappedBy = "fk_orders_phones")
-    private Set<Phone> orderPhones;*/
+    @Column(name = "creation_date")
+    private Instant creationDate;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "order")
+    private List<OrderPhone> orderPhones;
+
+    @Column(name = "price", nullable = false)
+    private BigDecimal price;
 
 }

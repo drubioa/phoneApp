@@ -8,19 +8,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "phones")
+@Table(name = "order_phones")
 @Slf4j
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-public class Phone implements Serializable {
+public class OrderPhone {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -28,15 +25,13 @@ public class Phone implements Serializable {
     @Column(name = "id", updatable =  false, nullable = false)
     private UUID id;
 
-    @Column(name = "name")
-    private String name;
+    @ManyToOne
+    private Phone phone;
 
-    @Column(name = "reference", nullable = false)
-    private String reference;
+    @ManyToOne
+    private Order order;
 
-    @Column(name = "price", nullable = false)
-    private BigDecimal price;
+    @Column(name = "number", nullable = false)
+    private Integer number;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "phone")
-    private List<OrderPhone> orderPhones;
 }

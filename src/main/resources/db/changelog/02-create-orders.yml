@@ -32,3 +32,11 @@ databaseChangeLog:
                 - column:
                     name: email
                     type: varchar(255)
+                - column:
+                    name: creation_date
+                    type: date
+                - column:
+                    name: price
+                    type: numeric
+                    constraints:
+                      nullable: false

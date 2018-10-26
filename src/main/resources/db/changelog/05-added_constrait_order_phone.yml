@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 201810230049-1
+      author: diego.rubio
+      changes:
+          - addForeighnKeyConstraint:
+              constraintName: fk_order_phones_phone
+              baseTableName: order_phones
+              baseColumn: phone_id
+              referencedTableName: phones
+              referencedColumnName: id
+          - addForeighnKeyConstraint:
+              constraintName: fk_orders_phones_order
+              baseTableName: order_phones
+              baseColumn: order_id
+              referencedTableName: orders
+              referencedColumnName: id

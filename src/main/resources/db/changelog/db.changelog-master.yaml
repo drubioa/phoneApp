@@ -9,5 +9,8 @@ databaseChangeLog:
       file: classpath:/db/changelog/03-insert-phones.yml
       relativeToChangelogFile: false
   - include:
-      file: classpath:/db/changelog/04-added_constrait_order_phones.yml
+      file: classpath:/db/changelog/04-create-order-phone.yml
+      relativeToChangelogFile: false
+  - include:
+      file: classpath:/db/changelog/05-added_constrait_order_phone.yml
       relativeToChangelogFile: false

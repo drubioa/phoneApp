@@ -1,6 +1,6 @@
 package com.phone.service;
 
-import com.phone.dao.PhoneDao;
+import com.phone.service.dao.PhoneDao;
 import com.phone.domain.Phone;
 import com.phone.model.PhoneDto;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class PhoneService {
 
     private static List<PhoneDto> phonesToPhonesDto(List<Phone> phones){
         List<PhoneDto> phoneDtos = new ArrayList<>();
-        phones.stream().forEach( p -> {
+        phones.forEach( p -> {
             PhoneDto phoneDto = new PhoneDto();
             phoneDto.setId(p.getId().toString());
             phoneDto.setName(p.getName());

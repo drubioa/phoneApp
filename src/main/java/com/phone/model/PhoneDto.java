@@ -6,9 +6,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.UUID;
 
+/**
+ * Class that represents the information about phone.
+ */
 @Setter
 @Getter
 @ToString

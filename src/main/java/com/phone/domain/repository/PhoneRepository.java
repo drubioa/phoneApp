@@ -1,4 +1,4 @@
-package com.phone.repository;
+package com.phone.domain.repository;
 
 import com.phone.domain.Phone;
 import org.springframework.data.jpa.repository.JpaRepository;

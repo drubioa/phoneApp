@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+          id: 201826100839-1
+          author: diego.rubio
+          changes:
+            - createTable:
+                tableName: order_phones
+                columns:
+                  - column:
+                      name: id
+                      type: UUID
+                      constraints:
+                        primaryKey: true
+                        nullable: false
+                  - column:
+                      name: phone_id
+                      type: UUID
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: order_id
+                      type: UUID
+                      constraints:
+                        nullable: false
+                  - column:
+                      name: number
+                      type: numeric
+                      constraints:
+                        nullable: false
