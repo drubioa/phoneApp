@@ -3,7 +3,6 @@ package com.phone.domain;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -16,7 +15,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
 public class OrderPhone {
 
     @Id

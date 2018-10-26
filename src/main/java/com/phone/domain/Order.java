@@ -19,7 +19,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @EqualsAndHashCode
-@ToString
 public class Order {
 
     @Id
@@ -51,5 +50,29 @@ public class Order {
 
     @Column(name = "price", nullable = false)
     private BigDecimal price;
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("id: "+id.toString()+"\n");
+        stringBuilder.append("customerName: "+customerName+"\n");
+        stringBuilder.append("customerFirstSurname: "+customerFirstSurname+"\n");
+        stringBuilder.append("phoneNumber: "+phoneNumber+"\n");
+        stringBuilder.append("email: "+email+"\n");
+        stringBuilder.append("creationDate: "+creationDate.toString()+"\n");
+
+
+        for(OrderPhone p: orderPhones) {
+            stringBuilder.append("-------------------------------------------------------------------------------\n");
+            stringBuilder.append("phoneId: "+p.getPhone().getId()+"\n");
+            stringBuilder.append("phone name: "+p.getPhone().getName()+"\n");
+            stringBuilder.append("phone price: "+p.getPhone().getPrice()+"\n");
+            stringBuilder.append("number: "+p.getNumber()+"\n");
+            stringBuilder.append("-------------------------------------------------------------------------------\n");
+        }
+
+        stringBuilder.append("TOTAL "+price+"\n");
+        return stringBuilder.toString();
+    }
 
 }
