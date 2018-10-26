@@ -32,7 +32,7 @@ public class OrderService {
     @Transactional
     public String createOrder(OrderRequest orderRequest) {
         Order newOrder = orderRequestToOrder(orderRequest);
-        orderDao.insertOrder(newOrder);
+        newOrder = orderDao.insertOrder(newOrder);
         log.info("Save new order {}", newOrder);
         return newOrder.getId().toString();
     }
