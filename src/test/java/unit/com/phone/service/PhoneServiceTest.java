@@ -12,9 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import javax.validation.constraints.AssertFalse;
-import javax.validation.constraints.AssertTrue;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
