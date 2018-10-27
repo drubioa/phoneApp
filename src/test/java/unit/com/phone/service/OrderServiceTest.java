@@ -6,6 +6,7 @@ import com.phone.model.CustomerDto;
 import com.phone.model.OrderItem;
 import com.phone.model.OrderRequest;
 import com.phone.service.OrderService;
+import com.phone.service.ValidatorComponent;
 import com.phone.service.dao.OrderDao;
 import com.phone.service.dao.PhoneDao;
 import org.junit.Test;
@@ -38,6 +39,9 @@ public class OrderServiceTest {
 
     @Mock
     private PhoneDao phoneDao;
+
+    @Mock
+    private ValidatorComponent validatorComponent;
 
     private OrderRequest orderRequest;
 
@@ -80,6 +84,8 @@ public class OrderServiceTest {
         Order order = new Order();
         order.setId(UUID.randomUUID());
         when(orderDao.insertOrder(any(Order.class))).thenReturn(order);
+        when(validatorComponent.validateEmailAddress(any(String.class))).thenReturn(true);
+        when(validatorComponent.validatePhoneNumber(any(String.class))).thenReturn(true);
 
         orderService.createOrder(orderRequest);
 
@@ -93,6 +99,9 @@ public class OrderServiceTest {
     public void createOrderWithInvalidPhone() {
         OrderRequest orderRequest = prepareTestOfInvalidItem();
         when(phoneDao.findById(INVALID_PHONE_ID)).thenReturn(null);
+        when(validatorComponent.validateEmailAddress(any(String.class))).thenReturn(true);
+        when(validatorComponent.validatePhoneNumber(any(String.class))).thenReturn(true);
+
         orderService.createOrder(orderRequest);
     }
 
